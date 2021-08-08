@@ -32,7 +32,7 @@ const NotesProvider = ({ children }) => {
     }
   }, [isDarkMode]);
 
-  console.log("esta en modo oscuro: ", isDarkMode);
+  // console.log("esta en modo oscuro: ", isDarkMode);
   const { notes, isAddingNote, isEditingNote } = stateNotes;
   const data = {
     notes,

@@ -12,7 +12,7 @@ const Aside = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleClick = () => {
-    console.log("agregando nota");
+    // console.log("agregando nota");
 
     const addNoteToForm = () => {
       dispatchNotes({
