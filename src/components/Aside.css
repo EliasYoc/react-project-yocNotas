@@ -1,0 +1,97 @@
+.aside-notes {
+  width: 360px;
+  background-color: var(--bg-aside);
+  /* Cuantas veces se encoje el item */
+  flex-shrink: 0;
+  overflow-y: scroll;
+  padding: 0 10px 10px 10px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s;
+}
+
+.aside-notes::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(123, 123, 123, 0.207);
+}
+.aside-notes::-webkit-scrollbar-thumb {
+  background: rgba(133, 128, 128, 0.637);
+  border-radius: 4px;
+}
+.aside-notes__header {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.aside-notes__btns-header {
+  display: flex;
+  gap: 10px;
+}
+.aside-notes__delete-all {
+  border: none;
+  background-color: var(--color-danger);
+  color: var(--text-color);
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 0 5px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+.aside-notes__delete-all:disabled {
+  opacity: 0;
+  visibility: hidden;
+}
+.aside-notes__dark-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aside-notes__logo {
+  color: var(--text-color);
+}
+.aside-notes__btn {
+  background-color: var(--color-success);
+  color: var(--text-color-btn-aside);
+  border: none;
+  border-radius: 10px;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+.aside-notes__btn:disabled {
+  background-color: gray;
+  color: white;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.aside-notes__empty-list {
+  height: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: empty-list 0.3s ease;
+}
+@keyframes empty-list {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.aside-notes__video {
+  width: 100px;
+}

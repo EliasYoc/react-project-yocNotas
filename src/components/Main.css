@@ -1,0 +1,33 @@
+.main {
+  width: 100%;
+  background-color: var(--bg-third);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.main__message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: main-animation 0.3s ease;
+}
+@keyframes main-animation {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.main__message > h1 {
+  color: var(--text-color);
+  text-align: center;
+}
+.main__message > video {
+  width: 200px;
+}

@@ -1,0 +1,8 @@
+.notes-list {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 10px;
+  /* outline: 1px solid red; */
+}

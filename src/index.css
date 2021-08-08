@@ -1,13 +1,53 @@
-body {
+:root {
+  --transparent: transparent;
+
+  --color-success: hsla(138, 80%, 51%, 0.856);
+  --color-danger: hsl(348, 83%, 47%);
+  --color-warning: hsl(48, 100%, 50%);
+
+  --bg-aside: rgb(233, 233, 233);
+  --bg-main: rgb(225, 225, 225);
+  --bg-note-card: rgb(199, 199, 199);
+  --bg-third: rgb(201, 201, 201);
+  --border-aside-color: rgb(145, 145, 145);
+
+  --text-color-btn-aside: rgb(9, 71, 35);
+  --text-color: rgb(24, 24, 24);
+  --cardnote-hover: hsla(142, 68%, 67%, 0.665);
+}
+.dark {
+  --color-success: hsl(138, 60%, 40%);
+  --color-danger: hsl(348, 63%, 47%);
+  --color-warning: hsl(48, 100%, 50%);
+
+  --bg-aside: rgb(24, 24, 24);
+  --bg-main: black;
+  --bg-note-card: rgb(38, 38, 38);
+  --bg-third: rgb(29, 29, 29);
+  --border-aside-color: rgb(104, 104, 104);
+
+  --text-color-btn-aside: rgb(255, 255, 255);
+  --text-color: rgb(233, 233, 233);
+  --cardnote-hover: hsla(142, 68%, 67%, 0.2);
+}
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text-color);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
