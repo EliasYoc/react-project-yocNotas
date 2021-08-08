@@ -1,8 +1,8 @@
 :root {
   --transparent: transparent;
 
-  --color-success: hsla(138, 80%, 51%, 0.856);
-  --color-danger: hsl(348, 83%, 47%);
+  --color-success: hsla(142, 78%, 67%, 0.8);
+  --color-danger: hsla(348, 83%, 60%, 0.836);
   --color-warning: hsl(48, 100%, 50%);
 
   --bg-aside: rgb(233, 233, 233);

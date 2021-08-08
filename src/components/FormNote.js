@@ -51,10 +51,9 @@ const FormNote = ({ handleChange }) => {
     deleteAndExitForm();
   };
   const handleDelete = (e) => {
-    console.log(e);
+    // console.log(e);
     e.preventDefault();
     if (noteForm.id) {
-      console.log("eliminando");
       const newNotes = notes.filter((note) => note.id !== noteForm.id);
       localStorage.setItem("yoc-notas", JSON.stringify(newNotes));
       dispatchNotes({ type: TYPES.DELETE_NOTE, payload: newNotes });

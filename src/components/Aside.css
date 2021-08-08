@@ -48,6 +48,7 @@
 .aside-notes__dark-btn {
   background: none;
   border: none;
+  box-shadow: none;
   cursor: pointer;
   color: var(--text-color);
   font-size: 1.3rem;
