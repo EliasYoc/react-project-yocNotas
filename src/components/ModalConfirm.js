@@ -4,7 +4,11 @@ import "./ModalConfirm.css";
 const ModalConfirm = ({ open, children, handleClose, areYouSure }) => {
   if (!open) return false;
   return reactDom.createPortal(
-    <article onClick={handleClose} className="modal">
+    <article
+      onTransitionEnd={(e) => e.stopPropagation()}
+      onClick={handleClose}
+      className="modal"
+    >
       <div
         className="modal__container"
         onClick={(e) => {

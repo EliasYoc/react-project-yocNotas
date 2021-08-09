@@ -5,7 +5,6 @@ import "./Main.css";
 
 const Main = () => {
   const { isAddingNote, noteForm, setNoteForm } = useContext(NotesContext);
-  // useEffect(() => {}, []);
 
   const handleChange = (e) => {
     setNoteForm({ ...noteForm, [e.target.name]: e.target.value });

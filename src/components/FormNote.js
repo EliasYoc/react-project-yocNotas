@@ -26,7 +26,7 @@ const FormNote = ({ handleChange }) => {
 
   const handleExit = (e) => {
     e.preventDefault();
-    deleteAndExitForm();
+    refForm.current.classList.add("transition-exit"); //despues de terminar la transition se ejecuta el transitionend
   };
 
   const handleSave = (e) => {
@@ -41,14 +41,15 @@ const FormNote = ({ handleChange }) => {
       );
       localStorage.setItem("yoc-notas", JSON.stringify(updatedNotes));
       dispatchNotes({ type: TYPES.UPDATE_NOTE, payload: updatedNote });
-      deleteAndExitForm();
+      refForm.current.classList.add("transition-exit");
+
       return;
     }
     // save
     const newNote = { id: uuidv4(), ...noteForm, date: new Date() };
     localStorage.setItem("yoc-notas", JSON.stringify([...notes, newNote]));
     dispatchNotes({ type: TYPES.SAVE_NOTE, payload: newNote });
-    deleteAndExitForm();
+    refForm.current.classList.add("transition-exit");
   };
   const handleDelete = (e) => {
     // console.log(e);
@@ -57,12 +58,20 @@ const FormNote = ({ handleChange }) => {
       const newNotes = notes.filter((note) => note.id !== noteForm.id);
       localStorage.setItem("yoc-notas", JSON.stringify(newNotes));
       dispatchNotes({ type: TYPES.DELETE_NOTE, payload: newNotes });
-      deleteAndExitForm();
+      refForm.current.classList.add("transition-exit");
+
       setModalIsOpen(false);
     }
   };
   return (
-    <form ref={refForm} className="main__form">
+    <form
+      onTransitionEnd={() => {
+        // console.log("transition end");
+        deleteAndExitForm();
+      }}
+      ref={refForm}
+      className="main__form"
+    >
       <ModalConfirm
         open={modalIsOpen}
         handleClose={() => setModalIsOpen(false)}
@@ -70,40 +79,45 @@ const FormNote = ({ handleChange }) => {
       >
         <p>¿Estás seguro que deseas eliminar esta nota?</p>
       </ModalConfirm>
-      <input
-        onChange={handleChange}
-        className="main__title"
-        type="text"
-        name="title"
-        placeholder="Titulo de la nota"
-        value={noteForm.title}
-        autoComplete="off"
-      />
-      <textarea
-        onChange={handleChange}
-        name="body"
-        className="main__body"
-        value={noteForm.body}
-        placeholder="Cuerpo del documento"
-      ></textarea>
-      {noteForm.id && (
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            setModalIsOpen(true);
-          }}
-          className="main__delete"
-        >
-          <AiTwotoneDelete />
+      <div
+        onTransitionEnd={(e) => e.stopPropagation()}
+        className="content-form"
+      >
+        <input
+          onChange={handleChange}
+          className="main__title"
+          type="text"
+          name="title"
+          placeholder="Titulo de la nota"
+          value={noteForm.title}
+          autoComplete="off"
+        />
+        <textarea
+          onChange={handleChange}
+          name="body"
+          className="main__body"
+          value={noteForm.body}
+          placeholder="Cuerpo del documento"
+        ></textarea>
+        {noteForm.id && (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setModalIsOpen(true);
+            }}
+            className="main__delete"
+          >
+            <AiTwotoneDelete />
+          </button>
+        )}
+        <button onClick={handleExit} className="main__exit">
+          <IoMdExit />
         </button>
-      )}
-      <button onClick={handleExit} className="main__exit">
-        <IoMdExit />
-      </button>
-      <button onClick={handleSave} className="main__save">
-        <IoIosSave />
-      </button>
-      <span className="main__id-note">Nota: {noteForm.id}</span>
+        <button onClick={handleSave} className="main__save">
+          <IoIosSave />
+        </button>
+        <span className="main__id-note">Nota: {noteForm.id}</span>
+      </div>
     </form>
   );
 };
