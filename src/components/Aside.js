@@ -59,7 +59,11 @@ const Aside = () => {
               Borrar todo
             </button>
           )}
-          <button onClick={switchToDarkMode} className="aside-notes__dark-btn">
+          <button
+            aria-label="dark-mode"
+            onClick={switchToDarkMode}
+            className="aside-notes__dark-btn"
+          >
             {isDarkMode ? <IoMdSunny /> : <FaMoon />}
           </button>
         </div>

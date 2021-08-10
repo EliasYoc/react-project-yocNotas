@@ -16,7 +16,7 @@
   --cardnote-hover: hsla(142, 68%, 67%, 0.665);
 }
 .dark {
-  --color-success: hsl(138, 60%, 40%);
+  --color-success: hsl(138, 73%, 37%);
   --color-danger: hsl(348, 63%, 47%);
   --color-warning: hsl(48, 100%, 50%);
 
