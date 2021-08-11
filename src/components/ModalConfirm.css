@@ -45,7 +45,7 @@
   border: none;
   padding: 5px;
   border-radius: 10px;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 .modal__btns .modal__cancel {
   border: 1px solid var(--color-success);
