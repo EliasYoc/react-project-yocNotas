@@ -8,9 +8,9 @@ const NoteCard = ({ id, body, title, date }) => {
   const dateObj = new Date(date);
   useEffect(() => {
     body
-      ? (refBody.current.innerText = body)
+      ? (refBody.current.innerText = body.substring(0, 134))
       : (refBody.current.innerHTML =
-          "<span class='empty-card'>contenido vacío</span>");
+          "<span class='empty-card'>[contenido vacío]</span>");
   }, [body]);
 
   const handleClick = () => {
@@ -27,7 +27,7 @@ const NoteCard = ({ id, body, title, date }) => {
   return (
     <article onClick={handleClick} className="notes-list__card">
       <div className="card__title">
-        {title || <span className="empty-card">Titulo vacío</span>}
+        {title || <span className="empty-card">[Título vacío]</span>}
       </div>
       <div ref={refBody} className="card__body">
         {/* {body || <span className="empty-card">vacío</span>} */}
