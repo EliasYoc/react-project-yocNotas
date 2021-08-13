@@ -98,3 +98,30 @@
 .content-form .main__id-note {
   color: gray;
 }
+
+@media only screen and (max-width: 520px) {
+  .main__form {
+    transform: translate(-100%);
+  }
+  @keyframes form-animation {
+    0% {
+      opacity: 0;
+      transform: translateX(30%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-100%);
+    }
+  }
+  .main__form .main__title {
+    padding-right: 20%;
+  }
+  .content-form .main__exit {
+    background-color: rgba(169, 169, 169);
+
+    opacity: 1;
+  }
+  .content-form .main__id-note {
+    font-size: 12px;
+  }
+}

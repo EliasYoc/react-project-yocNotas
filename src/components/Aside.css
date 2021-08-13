@@ -98,3 +98,12 @@
 .aside-notes__video {
   width: 100px;
 }
+
+@media only screen and (max-width: 520px) {
+  .aside-notes {
+    width: 100%;
+  }
+  .aside-notes__delete-all {
+    margin-right: 10px;
+  }
+}
